@@ -2,6 +2,7 @@ package net.alex.nexus.item;
 
 import net.alex.nexus.NexusMod;
 import net.alex.nexus.block.ModBlocks;
+import net.alex.nexus.fluid.ModFluids;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -43,6 +44,26 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.BLACK_OPAL_BOOTS);
 
                         pOutput.accept(ModBlocks.BLACK_OPAL_LAMP);
+
+                        pOutput.accept(ModItems.METAL_DETECTOR);
+                        pOutput.accept(ModItems.DATA_TABLET);
+                        pOutput.accept(ModItems.KAUPEN_BOW);
+
+                        pOutput.accept(ModItems.TOMATO_SEEDS);
+                        pOutput.accept(ModBlocks.PETUNIA);
+
+                        pOutput.accept(ModBlocks.COLORED_LEAVES);
+
+                        pOutput.accept(ModBlocks.PEDESTAL);
+
+                        pOutput.accept(ModItems.RADIATION_STAFF);
+
+                        pOutput.accept(ModFluids.BLACK_OPAL_WATER_BUCKET);
+
+                        pOutput.accept(ModBlocks.CRYSTALLIZER);
+
+                        pOutput.accept(ModItems.BLACK_OPAL_HORSE_ARMOR);
+                        pOutput.accept(ModItems.KAUPEN_SMITHING_TEMPLATE);
 
                     }).build());
     public static final Supplier<CreativeModeTab> BLACK_OPAL_BLOCKS_TAB =

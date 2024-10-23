@@ -12,9 +12,55 @@
 
   "block.nexus.magic_block": "Magic Block",
 
+  "block.nexus.tomato_crop": "Tomato Crop",
+
+  "block.nexus.ebony_log": "Ebony Log",
+  "block.nexus.ebony_planks": "Ebony Planks",
+  "block.nexus.ebony_wood": "Ebony Wood",
+  "block.nexus.stripped_ebony_log": "Stripped Ebony Log",
+  "block.nexus.stripped_ebony_wood": "Stripped Ebony Wood",
+  "block.nexus.ebony_leaves": "Ebony Leaves",
+  "block.nexus.ebony_sapling": "Ebony Sapling",
+
+  "item.nexus.black_opal_horse_armor": "Black Horse Armor",
+
+  "item.nexus.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
+
+  "trim_pattern.nexus.kaupen": "Kaupen Armor Trim",
+  "trim_material.nexus.black_opal": "Black Opal Material",
+
+  "block.nexus.petunia": "Petunia",
+  "block.nexus.potted_petunia": "Potted Petunia",
+  "block.nexus.colored_leaves": "Colored Leaves",
+
+  "sounds.nexus.chainsaw_cut": "Chainsaw Cutting Sound",
+  "sounds.nexus.chainsaw_pull": "Chainsaw Pulling Sound",
+
+  "block.nexus.pedestal": "Pedestal",
+
+  "effect.nexus.slimey": "Slimey",
+
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+
+  "item.nexus.radiation_staff": "Radiation Staff",
+
+  "item.nexus.black_opal_water_bucket": "Black Opal Water Bucket",
+
+  "block.nexus.crystallizer": "Crystallizer",
+
+  "enchantment.nexus.lightning_striker": "Lightning Striker",
+
   "item.nexus.chainsaw": "Chainsaw",
   "item.nexus.tomato": "Tomato",
   "item.nexus.frostfire_ice": "Frostfire Ice",
+
+  "item.nexus.metal_detector": "Metal Detector",
+  "item.nexus.data_tablet": "Data Tablet",
+
+  "item.nexus.kaupen_bow": "Kaupen Bow",
+  "item.nexus.tomato_seeds": "Tomato Seeds",
 
   "item.nexus.black_opal_sword": "Black Opal Sword",
   "item.nexus.black_opal_pickaxe": "Black Opal Pickaxe",
@@ -29,6 +75,12 @@
   "item.nexus.black_opal_chestplate": "Black Opal Chestplate",
   "item.nexus.black_opal_leggings": "Black Opal Leggings",
   "item.nexus.black_opal_boots": "Black Opal Boots",
+
+  "tooltip.nexus.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
+  "tooltip.nexus.chainsaw.tooltip.1": "This chainsaw is awesome and will cut down trees!",
+  "tooltip.nexus.chainsaw.tooltip.2": "§oChainsaw go vroom!§r",
+
+  "item.nexus.metal_detector.no_valuables": "No Valuables Found!",
 
   "itemGroup.nexus.black_opal_items_tab": "Black Opal Items",
   "itemGroup.nexus.black_opal_blocks_tab": "Black Opal Blocks"

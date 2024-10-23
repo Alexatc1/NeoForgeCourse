@@ -1,0 +1,10 @@
+{
+  "values": {
+    "nexus:tomato": {
+      "chance": 0.45
+    },
+    "nexus:tomato_seeds": {
+      "chance": 0.2
+    }
+  }
+}

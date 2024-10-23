@@ -1,10 +1,26 @@
 package net.alex.nexus;
 
 import net.alex.nexus.block.ModBlocks;
+import net.alex.nexus.component.ModDataComponentTypes;
+import net.alex.nexus.effect.ModEffects;
+import net.alex.nexus.enchantment.ModEnchantmentEffects;
+import net.alex.nexus.fluid.BaseFluidType;
+import net.alex.nexus.fluid.ModFluidTypes;
+import net.alex.nexus.fluid.ModFluids;
 import net.alex.nexus.item.ModArmorMaterials;
 import net.alex.nexus.item.ModCreativeModeTabs;
 import net.alex.nexus.item.ModItems;
+import net.alex.nexus.potion.ModPotions;
+import net.alex.nexus.sound.ModSounds;
+import net.alex.nexus.util.ModItemProperties;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -47,6 +63,16 @@ public class NexusMod {
 
         ModArmorMaterials.register(modEventBus);
 
+        ModDataComponentTypes.register(modEventBus);
+
+        ModSounds.register(modEventBus);
+        ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
+
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
+        ModEnchantmentEffects.register(modEventBus);
+
 
 
         // Register ourselves for server and other game events we are interested in.
@@ -62,15 +88,10 @@ public class NexusMod {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
 
-        if (Config.logDirtBlock)
-            LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PETUNIA.getId(), ModBlocks.POTTED_PETUNIA);
+        });
     }
 
     // Add the example block item to the building blocks tab
@@ -93,9 +114,27 @@ public class NexusMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            ModItemProperties.addCustomItemProperties();
+
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLACK_OPAL_WATER.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLACK_OPAL_WATER.get(), RenderType.translucent());
+            });
+        }
+        @SubscribeEvent
+        public static void onClientExtensions(RegisterClientExtensionsEvent event) {
+            event.registerFluidType(((BaseFluidType) ModFluidTypes.BLACK_OPAL_WATER_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                    ModFluidTypes.BLACK_OPAL_WATER_FLUID_TYPE.get());
+        }
+
+        @SubscribeEvent
+        public static void registerColoredBlocks(RegisterColorHandlersEvent.Block event) {
+            event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null &&
+                    pPos != null ? BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), ModBlocks.COLORED_LEAVES.get());
+        }
+        @SubscribeEvent
+        public static void registerColoredItems(RegisterColorHandlersEvent.Item event) {
+            event.register((pStack, pTintIndex) -> FoliageColor.getDefaultColor(), ModBlocks.COLORED_LEAVES);
         }
     }
 }

@@ -1,0 +1,44 @@
+{
+  "chainsaw_cut": {
+    "subtitle": "sounds.nexus.chainsaw_cut",
+    "sounds": [
+      "nexus:chainsaw_cut"
+    ]
+  },
+  "chainsaw_pull": {
+    "subtitle": "sounds.nexus.chainsaw_pull",
+    "sounds": [
+      "nexus:chainsaw_pull"
+    ]
+  },
+  "magic_block_break": {
+    "subtitle": "sounds.nexus.magic_block_break",
+    "sounds": [
+      "nexus:magic_block_break"
+    ]
+  },
+  "magic_block_step": {
+    "subtitle": "sounds.nexus.magic_block_step",
+    "sounds": [
+      "nexus:magic_block_step"
+    ]
+  },
+  "magic_block_place": {
+    "subtitle": "sounds.nexus.magic_block_place",
+    "sounds": [
+      "nexus:magic_block_place"
+    ]
+  },
+  "magic_block_hit": {
+    "subtitle": "sounds.nexus.magic_block_hit",
+    "sounds": [
+      "nexus:magic_block_hit"
+    ]
+  },
+  "magic_block_fall": {
+    "subtitle": "sounds.nexus.magic_block_fall",
+    "sounds": [
+      "nexus:magic_block_fall"
+    ]
+  }
+}

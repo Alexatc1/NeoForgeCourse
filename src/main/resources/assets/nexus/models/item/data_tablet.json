@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nexus:item/data_tablet_off"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "nexus:on": 1
+      },
+      "model": "nexus:item/data_tablet_on"
+    }
+  ]
+}

@@ -1,11 +1,13 @@
 package net.alex.nexus.datagen;
 
 import net.alex.nexus.NexusMod;
+import net.alex.nexus.block.ModBlocks;
 import net.alex.nexus.item.ModItems;
 import net.alex.nexus.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -26,5 +28,24 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.COAL)
                 .add(Items.DANDELION)
                 .add(Items.COMPASS);
+
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.BLACK_OPAL_HELMET.get())
+                .add(ModItems.BLACK_OPAL_CHESTPLATE.get())
+                .add(ModItems.BLACK_OPAL_LEGGINGS.get())
+                .add(ModItems.BLACK_OPAL_BOOTS.get());
+
+        this.tag(ItemTags.TRIM_MATERIALS)
+                .add(ModItems.BLACK_OPAL.get());
+        this.tag(ItemTags.TRIM_TEMPLATES)
+                .add(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
+
+        tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.EBONY_LOG.get().asItem())
+                .add(ModBlocks.EBONY_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_EBONY_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_EBONY_WOOD.get().asItem());
+        tag(ItemTags.PLANKS)
+                .add(ModBlocks.EBONY_PLANKS.get().asItem());
     }
 }

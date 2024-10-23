@@ -1,7 +1,9 @@
 package net.alex.nexus.datagen;
 
 import net.alex.nexus.block.ModBlocks;
+import net.alex.nexus.block.custom.TomatoCropBlock;
 import net.alex.nexus.item.ModItems;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -16,6 +18,8 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;
@@ -39,6 +43,29 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_END_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 4, 7));
         this.add(ModBlocks.BLACK_OPAL_NETHER_ORE.get(),
                 block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_NETHER_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 3, 9));
+
+        LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TOMATO_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TomatoCropBlock.AGE, 5));
+        this.add(ModBlocks.TOMATO_CROP.get(), this.createCropDrops(ModBlocks.TOMATO_CROP.get(),
+                ModItems.TOMATO.get(), ModItems.TOMATO_SEEDS.asItem(), lootItemConditionBuilder));
+
+        this.dropSelf(ModBlocks.PETUNIA.get());
+        this.add(ModBlocks.POTTED_PETUNIA.get(), createPotFlowerItemTable(ModBlocks.PETUNIA));
+
+        dropSelf(ModBlocks.COLORED_LEAVES.get());
+
+        dropSelf(ModBlocks.PEDESTAL.get());
+
+        dropSelf(ModBlocks.CRYSTALLIZER.get());
+
+        this.dropSelf(ModBlocks.EBONY_LOG.get());
+        this.dropSelf(ModBlocks.EBONY_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_EBONY_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_EBONY_WOOD.get());
+        this.dropSelf(ModBlocks.EBONY_PLANKS.get());
+        this.dropSelf(ModBlocks.EBONY_SAPLING.get());
+        this.add(ModBlocks.EBONY_LEAVES.get(), block ->
+                createLeavesDrops(block, ModBlocks.EBONY_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

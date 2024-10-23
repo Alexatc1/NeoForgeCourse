@@ -1,0 +1,6 @@
+{
+  "parent": "nexus:item/kaupen_bow",
+  "textures": {
+    "layer0": "nexus:item/kaupen_bow_pulling_1"
+  }
+}
